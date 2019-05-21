@@ -1,0 +1,122 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style type="text/css">
+        body {
+            font-family: Verdana;
+            font-size: 12pt;
+        }
+
+        h2 {
+            font-family: Verdana;
+            font-size: 18pt;
+        }
+
+        input, button {
+            font-family: Verdana;
+            font-size: 14pt;
+        }
+
+        table, td {
+            border: 1px solid #999;
+            border-collapse: collapse;
+        }
+
+        img {
+            display: inline;
+            padding: 0 10px 0 0;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>Crime of Canada</title>
+</head>
+
+<body onload="loadXMLDoc();">
+
+    <img id="icon" src="icon1.png" height="48">
+    <h2>Incidents of Crime in Canada for 2013</h2>
+    <label>Select Region</label>
+
+    <select id="terrInput"></select>
+
+    <input type="submit" value="Get Statistics" onclick="RenderXSLT()" />
+    <br><br><br>
+    <div id="xsltOutputContainer"></div>
+
+    <script type="text/javascript">
+
+        function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    fillDropdown(this);
+                }
+            }
+            xmlhttp.open("GET", "crime.xml", true);
+            xmlhttp.send();
+        }
+
+        function fillDropdown(xml) {
+
+            var xmlDoc = xml.responseXML;
+            var regions = xmlDoc.getElementsByTagName("region");
+            var sel = document.getElementById("terrInput");
+
+            for (i = 0; i < regions.length; i++) {
+                var name = regions[i].getAttributeNode("name");
+                var nodeN = name.nodeValue;
+                sel.options[i] = new Option(nodeN);
+            }
+        }
+
+        function loadXMLDocTbl(filename) {
+            if (window.ActiveXObject) {
+                xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+
+            } else {
+                xhttp = new XMLHttpRequest();
+            }
+            xhttp.open("GET", filename, false);
+
+            try { xhttp.responseType = "msxml-document" }
+            catch (err) { }
+
+            xhttp.send("");
+            return xhttp.responseXML;
+        }
+
+        function RenderXSLT() {
+            xml = loadXMLDocTbl("crime.xml");
+            xslt = loadXMLDocTbl("searchTr.xslt");
+
+            var terrName = document.getElementById("terrInput").value;
+
+            if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
+
+                var template = new ActiveXObject("Msxml2.XslTemplate.6.0");
+                template.stylesheet = xslt;
+
+                var proc = template.createProcessor();
+
+                proc.input = xml;
+                proc.addParameter("territory", terrName);
+
+                proc.transform();
+                document.getElementById("xsltOutputContainer").innerHTML = proc.output;
+
+            } else if (typeof XSLTProcessor !== 'undefined') {
+
+                var xsltProcessor = new XSLTProcessor();
+                xsltProcessor.importStylesheet(xslt);
+
+                xsltProcessor.setParameter(null, "territory", terrName);
+
+                var resultDocument = xsltProcessor.transformToFragment(xml, document);
+                document.getElementById("xsltOutputContainer").innerHTML = "";
+                document.getElementById("xsltOutputContainer").appendChild(resultDocument);
+            }
+        }
+
+    </script>
+</body>
+</html>
