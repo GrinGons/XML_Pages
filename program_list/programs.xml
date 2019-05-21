@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<programs updated="2019-02-04" unit="School of Information Technology"
+          
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="programs.xsd"
+>
+          
+  <program name="Computer Programmer Analyst" code="CPA2" type="advanced diploma">
+    <semesters>6</semesters>
+    <co-op>yes</co-op>
+    <campus>LCD</campus>
+    <start-date>September</start-date>
+    <start-date>January</start-date>
+  </program>
+  <program name="Computer Systems Technician" code="CTN2" type="diploma">
+    <semesters>4</semesters>
+    <co-op>no</co-op>
+    <campus>LC</campus>
+    <start-date>September</start-date>
+    <start-date>January</start-date>
+  </program>
+  <program name="Computer Systems Technician" code="CTY2" type="advanced diploma">
+    <semesters>6</semesters>
+    <co-op>yes</co-op>
+    <campus>LC</campus>
+    <start-date>September</start-date>
+    <start-date>January</start-date>
+  </program>
+  <program name="Cyber Security" code="CYB1" type="advanced diploma">
+    <semesters>6</semesters>
+    <co-op>yes</co-op>
+    <campus>LC</campus>
+    <start-date>September</start-date>
+    <start-date>January</start-date>
+  </program>
+  <program name="Game Development - Advanced Programming" code="GDP1" type="graduate certificate">
+    <semesters>2</semesters>
+    <co-op>no</co-op>
+    <campus>LCD</campus>
+    <start-date>September</start-date>
+  </program>
+  <program name="Information Security Management" code="ISM1" type="graduate certificate">
+    <semesters>2</semesters>
+    <co-op>no</co-op>
+    <campus>LC</campus>
+    <start-date>September</start-date>
+    <start-date>January</start-date>
+    <start-date>May</start-date>
+  </program>
+  <program name="Internet Applications and Web Development" code="IWD1" type="diploma">
+    <semesters>4</semesters>
+    <co-op>no</co-op>
+    <campus>LCD</campus>
+    <start-date>September</start-date>
+    <start-date>January</start-date>
+  </program>
+  <program name="Software and Information Systems Testing" code="SST3" type="graduate certificate">
+    <semesters>2</semesters>
+    <co-op>yes</co-op>
+    <campus>LCD</campus>
+    <start-date>September</start-date>
+    <start-date>January</start-date>
+    <start-date>May</start-date>
+  </program>
+</programs>
