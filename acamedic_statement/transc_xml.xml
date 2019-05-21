@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Transcript
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="transc_xsd.xsd">
+
+  <TransTitle>Statement of Academic Achievement</TransTitle>
+  <InstitutionName>Fanshawe College</InstitutionName>
+  <PrintDate>2002-09-24</PrintDate>
+
+  <Student StudentName="Damion Levine" StudentID="0123456">
+    <StudentAddress>123 Main St, Adelaide, ON N1B 2C3</StudentAddress>
+  </Student>
+
+  <TermGroup>
+    <Term>
+      <TermID>2017 Fall</TermID>
+      <ProgramName>Internet Applications &amp; Web Development</ProgramName>
+      <StudentStatus>In Good Standing</StudentStatus>
+      <TermGPA>20.0</TermGPA>
+      <CourseGroup>
+        
+        <!-- In this assignment, I made calculating grade point 
+          to reduce errors. When you entered an English credit, 
+          Course Grade Point is automatically created 
+          and the average score is automatically sum.-->
+          
+        <Course CourseCode="BUSI-1156" CourseName="Strategies for Success" CourseCredit="1.0" StudentGrade="B+"/>
+        <Course CourseCode="INFO-1219" CourseName="Network Fundamentals for Programmers" CourseCredit="3.0" StudentGrade="C+"/>
+        <Course CourseCode="INFO-1232" CourseName="Programming Fund for Web Development" CourseCredit="6.0" StudentGrade="B"/>
+        <Course CourseCode="INFO-1215" CourseName="Database Fundamentals" CourseCredit="4.0" StudentGrade="C"/>
+        <Course CourseCode="INFO-1233" CourseName="Web Server Fundamentals" CourseCredit="3.0" StudentGrade="A"/>
+        <Course CourseCode="WRIT-1043" CourseName="Reason &amp; Writing 1 for IT" CourseCredit="3.0" StudentGrade="C+"/>
+      </CourseGroup>
+    </Term>
+
+    <Term>
+      <TermID>2018 Winter</TermID>
+      <ProgramName>Internet Applications &amp; Web Development</ProgramName>
+      <StudentStatus>In Good Standing</StudentStatus>
+      <TermGPA>20.0</TermGPA>
+      <CourseGroup>
+        <Course CourseCode="INFO-1148" CourseName="Web Design" CourseCredit="2.0" StudentGrade="A+"/>
+        <Course CourseCode="INFO-3114" CourseName="OOP for Web Development" CourseCredit="3.5" StudentGrade="B+"/>
+        <Course CourseCode="INFO-3091" CourseName="ASP NET Programming" CourseCredit="3.0" StudentGrade="C"/>
+        <Course CourseCode="INFO-3104" CourseName="Relational Databases &amp; SQL" CourseCredit="3.5" StudentGrade="B"/>
+        <Course CourseCode="MGMT-3052" CourseName="Understanding Workplace Behaviours" CourseCredit="3.0" StudentGrade="C+"/>
+        <Course CourseCode="INFO-1167" CourseName="Business At the Speed of Light" CourseCredit="4.0" StudentGrade="A"/>
+      </CourseGroup>
+    </Term>
+
+    <Term>
+      <TermID>2018 Fall</TermID>
+      <ProgramName>Internet Applications &amp; Web Development</ProgramName>
+      <StudentStatus>In Good Standing</StudentStatus>
+      <TermGPA>20.0</TermGPA>
+      <CourseGroup>
+        <Course CourseCode="COMM-3077" CourseName="Communication for IT" CourseCredit="3.0" StudentGrade="B"/>
+        <Course CourseCode="INFO-1131" CourseName="Graphics" CourseCredit="3.0" StudentGrade="A"/>
+        <Course CourseCode="INFO-3144" CourseName="Applied JavaScript Tools &amp; Frameworks" CourseCredit="3.0" StudentGrade="C"/>
+        <Course CourseCode="INFO-3086" CourseName="Web Standards" CourseCredit="3.0" StudentGrade="C+"/>
+        <Course CourseCode="INFO-3113" CourseName="Mobile Web Development" CourseCredit="3.0" StudentGrade="A"/>
+        <Course CourseCode="INFO-3106" CourseName="LAMP 1" CourseCredit="3.0" StudentGrade="D"/>
+      </CourseGroup>
+    </Term>
+  </TermGroup>
+
+</Transcript>
