@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<dogParks region="City Of London" accessed="2019-01-29"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="dogParks.xsd"
+  >
+  <park id="1" name="Pottersburg - FIDO Off-Leash Dog Park" smallDogs="true">
+    <address>1139 Hamilton Rd</address>
+    <year-constructed/>
+    <feature>Portable toilet</feature>
+    <coordinates point_x="485237.5854" point_y="4757905.0393"/>
+  </park>
+  <park id="2" name="Stoney Creek - Off-Leash Dog Park" smallDogs="true">
+    <address>1343 Adelaide St N</address>
+    <year-constructed/>
+    <feature>Trails through a naturalized area</feature>
+    <coordinates point_x="479546.1745" point_y="4763544.2218"/>
+  </park>
+  <park id="3" name="Greenway - Off-Leash Dog Park #1" smallDogs="true">
+    <address>50 Greenside Ave</address>
+    <year-constructed/>
+    <feature>Nearby soccer fields and playground</feature>
+    <feature>Butterfly garden</feature>
+    <coordinates point_x="476706.2082" point_y="4757940.5984"/>
+  </park>
+  <park id="4" name="Campbell Memorial - Off-Leash Dog Park" smallDogs="false">
+    <address>380 Dundas St</address>
+    <year-constructed>2016</year-constructed>
+    <feature>Covered in wood chips</feature>
+    <coordinates point_x="480342.4535" point_y="4759386.8858"/>
+  </park>
+  <park id="5" name="Caesar's Park - Off-Leash Dog Park" smallDogs="true">
+    <address>945 Commissioners Rd E</address>
+    <year-constructed>2016</year-constructed>
+    <feature>Dedicated to police service dog Caesar</feature>
+    <coordinates point_x="482704.6075" point_y="4756263.1978"/>
+  </park>
+  <park id="6" name="Greenway - Off-Leash Dog Park #2" smallDogs="true">
+    <address>50 Greenside Ave</address>
+    <year-constructed>2017</year-constructed>
+    <feature>Nearby soccer fields and playground</feature>
+    <feature>Butterfly garden</feature>
+    <coordinates point_x="476600.388" point_y="4757916.9496"/>
+  </park>
+</dogParks>
