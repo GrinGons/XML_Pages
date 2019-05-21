@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This version of the schema has a target namespace -->
+<xs:schema
+    elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+  <!--    In this assignment, I made calculating function for Grade Point 
+          to reduce errors. When you entered an English credit, 
+          Course Grade Point is automatically created 
+          and the average score is automatically sum, 
+          so I removed from that item      -->
+
+  <!--    start of Name Type references    -->
+  
+  <xs:simpleType name="courseCodeType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{4}\-\d{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="StudentGType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[ABCDF][+-]?|[DFPINWX]"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="StudentGPType">
+    <xs:restriction base="xs:decimal">
+      <xs:pattern value="0.0|0.5|1.0|1.5|2.0|2.5|3.0|3.5|4.0|4.5|N/A"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CourseCredType">
+    <xs:union memberTypes="xs:nonNegativeInteger xs:decimal" />
+  </xs:simpleType>
+
+  <xs:simpleType name="GPAType">
+    <xs:union memberTypes="xs:nonNegativeInteger xs:decimal" />
+  </xs:simpleType>
+  
+  
+  <!-- start of Main schema -->
+
+  <xs:element name="Transcript">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="TransTitle" type="xs:string"/>
+        <xs:element name="InstitutionName" type="xs:string"/>
+        <xs:element name="PrintDate" type="xs:date"/>
+        <xs:element name="Student">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="StudentAddress" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            </xs:all>
+            <xs:attribute name="StudentName" type="xs:string"/>
+            <xs:attribute name="StudentID" type="xs:positiveInteger"/>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Term Group -->
+        <xs:element name="TermGroup">
+          <xs:complexType>
+            <xs:sequence>
+
+              <xs:element name="Term" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:all>
+                    <!-- TermID -->
+                    <xs:element name="TermID">
+                      <xs:unique name="UniqTerm">
+                        <xs:selector xpath="term/id"/>
+                        <xs:field xpath="."/>
+                      </xs:unique>
+                    </xs:element>
+                    <xs:element name="ProgramName" type="xs:string"/>
+                    <xs:element name="StudentStatus">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="In Good Standing"/>
+                          <xs:enumeration value="Conditional Continuation"/>
+                          <xs:enumeration value="Required to Re-Apply"/>
+                          <xs:enumeration value="Recommended for Graduation"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="TermGPA" type="GPAType"/>
+                    <!-- Ref -->
+                    
+                    <!-- end of Term element definition -->
+                    <xs:element name="CourseGroup">
+                      <xs:complexType>
+                        <xs:sequence>
+
+                          <xs:element minOccurs="1" maxOccurs="unbounded" name="Course">
+                            <xs:complexType>
+                              <xs:attribute name="CourseCode" type="courseCodeType" use="required"/>
+                              <!-- Ref -->
+                              <xs:attribute name="CourseName" use="required"/>
+                              <xs:attribute name="CourseCredit" type="CourseCredType"/>
+                              <!-- Ref -->
+                              <xs:attribute name="StudentGrade" type="StudentGType"/>
+                              <!-- Ref -->
+                              <xs:attribute name="StudentGradePoint" type="StudentGPType"/>
+                              <!-- Ref -->
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <!-- end of CourseGroup element definition that is based on a user-derived type -->
+
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+              <!-- Term -->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- end of TermGroup element definition -->
+
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+
+</xs:schema>
